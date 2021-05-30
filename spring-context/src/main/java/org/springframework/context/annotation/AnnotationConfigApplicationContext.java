@@ -44,8 +44,6 @@ import org.springframework.util.Assert;
  *
  * <p>See {@link Configuration @Configuration}'s javadoc for usage examples.
  *
- * @author Juergen Hoeller
- * @author Chris Beams
  * @since 3.0
  * @see #register
  * @see #scan
