@@ -37,9 +37,6 @@ import org.springframework.lang.Nullable;
  * making them obvious to ApplicationContext client code. The present
  * methods should only be used by startup and shutdown code.
  *
- * @author Juergen Hoeller
- * @author Chris Beams
- * @author Sam Brannen
  * @since 03.11.2003
  */
 public interface ConfigurableApplicationContext extends ApplicationContext, Lifecycle, Closeable {
@@ -51,7 +48,7 @@ public interface ConfigurableApplicationContext extends ApplicationContext, Life
 	 * @see org.springframework.web.context.ContextLoader#CONFIG_LOCATION_PARAM
 	 * @see org.springframework.web.servlet.FrameworkServlet#setContextConfigLocation
 	 */
-	String CONFIG_LOCATION_DELIMITERS = ",; \t\n";
+	String CONFIG_LOCATION_DELIMITERS = ",; \t\n";//delimiters:定义符
 
 	/**
 	 * Name of the ConversionService bean in the factory.

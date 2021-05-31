@@ -39,18 +39,14 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Base class for concrete, full-fledged {@link BeanDefinition} classes,
- * factoring out common properties of {@link GenericBeanDefinition},
- * {@link RootBeanDefinition}, and {@link ChildBeanDefinition}.
  *
- * <p>The autowire constants match the ones defined in the
- * {@link org.springframework.beans.factory.config.AutowireCapableBeanFactory}
- * interface.
+ * 是具体完全成熟的{@link BeanDefinition}的Base类
+ * 提取出了{@link GenericBeanDefinition}、{@link RootBeanDefinition}, 和 {@link ChildBeanDefinition}的公共属性
+ *（也就是说，this是这三个类的父类）
  *
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @author Rob Harrop
- * @author Mark Fisher
+ * <p>autowire常量匹配 {@link AutowireCapableBeanFactory}接口里定义的任意一个
+ *
+ *
  * @see GenericBeanDefinition
  * @see RootBeanDefinition
  * @see ChildBeanDefinition
@@ -60,8 +56,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 		implements BeanDefinition, Cloneable {
 
 	/**
-	 * Constant for the default scope name: {@code ""}, equivalent to singleton
-	 * status unless overridden from a parent bean definition (if applicable).
+	 * 默认scope常量: {@code ""},如果不在父bean中重写的话，就相当于singleton
 	 */
 	public static final String SCOPE_DEFAULT = "";
 
@@ -160,6 +155,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 
 	private boolean primary = false;
 
+	/*限定符*/
 	private final Map<String, AutowireCandidateQualifier> qualifiers = new LinkedHashMap<>();
 
 	@Nullable
@@ -667,6 +663,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 
 	/**
 	 * Set whether this bean is a candidate for getting autowired into some other bean.
+	 * 设置这个bean是不是其他bean用@autowired的竞选者
 	 * <p>Note that this flag is designed to only affect type-based autowiring.
 	 * It does not affect explicit references by name, which will get resolved even
 	 * if the specified bean is not marked as an autowire candidate. As a consequence,
@@ -689,6 +686,7 @@ public abstract class AbstractBeanDefinition extends BeanMetadataAttributeAccess
 
 	/**
 	 * Set whether this bean is a primary autowire candidate.
+	 * 设置这个bean是不是@autowired的优先者
 	 * <p>If this value is {@code true} for exactly one bean among multiple
 	 * matching candidates, it will serve as a tie-breaker.
 	 */

@@ -47,9 +47,6 @@ import org.springframework.beans.factory.Aware;
  * <p>For a list of all bean lifecycle methods, see the
  * {@link org.springframework.beans.factory.BeanFactory BeanFactory javadocs}.
  *
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @author Chris Beams
  * @see ResourceLoaderAware
  * @see ApplicationEventPublisherAware
  * @see MessageSourceAware
